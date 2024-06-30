@@ -1,0 +1,18 @@
+---
+import Hero from "./Hero.astro";
+// Import other block components
+
+const { data } = Astro.props;
+---
+
+{data.map(block => {
+  switch (block.blockType) {
+    case 'hero':
+      return <Hero {...block} />;
+    // case 'textBlock':
+    //   return <TextBlock {...block} />;
+    // // Add cases for other block types
+    default:
+      return null;
+  }
+})}
