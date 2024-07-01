@@ -1,0 +1,44 @@
+---
+// Import Splide's CSS
+import '@splidejs/splide/dist/css/splide.min.css';
+
+const { images } = Astro.props;
+---
+
+<div>
+  <h1>This is a carousel</h1>
+  <div class="splide" role="group" aria-label="Splide Basic HTML Example">
+    <div class="splide__track">
+      <ul class="splide__list">
+        {images.map(image => (
+          
+            <li class="splide__slide">
+              <a href={image.link.slug}>
+              <img src={`http://localhost:3000${image.image.url}`} alt={image.alt || 'Carousel image'} />
+                 </a>  
+            </li>            
+     
+
+        ))}
+      </ul>
+    </div>
+  </div>
+</div>
+<style>
+  .splide__slide img {
+    width: 100%;
+    height: auto;
+    max-height: 500px
+  }
+</style>
+<script>
+import Splide from "@splidejs/splide";
+
+document.addEventListener("DOMContentLoaded", function () {
+  new Splide(".splide", {
+    type: "loop",
+    perPage: 1  ,
+    autoplay: true,
+  }).mount();
+});
+</script>

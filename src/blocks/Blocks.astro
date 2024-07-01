@@ -1,5 +1,6 @@
 ---
 import Hero from "./Hero.astro";
+import Carousel from "../components/Carousel.astro"
 // Import other block components
 
 const { data } = Astro.props;
@@ -9,8 +10,8 @@ const { data } = Astro.props;
   switch (block.blockType) {
     case 'hero':
       return <Hero {...block} />;
-    // case 'textBlock':
-    //   return <TextBlock {...block} />;
+    case 'carousel':
+      return <Carousel {...block} />;
     // // Add cases for other block types
     default:
       return null;
