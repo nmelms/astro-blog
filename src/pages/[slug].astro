@@ -1,0 +1,26 @@
+---
+
+export const fetchData = async () => {
+  try{
+    const response = await fetch('http://localhost:3000/api/pages/')
+    const data = await response.json()
+    console.log(data)
+    return data.docs
+  }catch{
+    console.log('error')
+  }
+}
+
+export const getStaticPaths = async () => {
+  const data = await fetchData();
+  const paths = data.map(page => ({
+    params: { slug: page.slug },
+  }));
+
+  return paths
+};
+
+const { slug } = Astro.params;
+---
+<div>Good dog, {slug}!</div>
+
