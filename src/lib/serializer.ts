@@ -1,4 +1,5 @@
 import escapeHTML from "escape-html";
+import { highlight } from "sugar-high";
 import {
   IS_BOLD,
   IS_ITALIC,

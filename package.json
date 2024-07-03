@@ -12,6 +12,7 @@
   "dependencies": {
     "@splidejs/splide": "^4.1.4",
     "astro": "^4.11.3",
-    "escape-html": "^1.0.3"
+    "escape-html": "^1.0.3",
+    "sugar-high": "^0.7.0"
   }
 }
