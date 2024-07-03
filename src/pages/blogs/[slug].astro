@@ -1,5 +1,6 @@
 ---
 import Blocks from "../../blocks/Blocks.astro"
+import Layout from "../../layouts/Layout.astro"
 export const fetchData = async () => {
   try{
     const response = await fetch('http://localhost:3000/api/blogs/')
@@ -24,8 +25,10 @@ const { slug } = Astro.params;
 const { layout } = Astro.props;
 ---
 
+<Layout title="Dev Blog">
 <div>
   Good dog, {slug}!
   <Blocks data={layout} /> 
 </div>
+</Layout>
 

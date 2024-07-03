@@ -1,0 +1,6 @@
+---
+const { heading, text, image } = Astro.props;
+console.log(image, 'image')
+---
+
+<img style="height: 200px; width: 200px" src=`http://localhost:3000${image.url}` alt=`${image.alt}`>
