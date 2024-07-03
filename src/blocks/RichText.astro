@@ -1,12 +1,8 @@
 ---
-
-import {serialize} from '../lib/serializer.ts'
-  const { richText } = Astro.props;
-  const serializedContent = serialize(richText.root.children).join('');
-
+  const {  richText_html } = Astro.props;
 ---
 
-  <section class="rich-text" set:html={serializedContent}></section>
+  <section class="rich-text" set:html={richText_html}></section>
 
 <style>
 *{

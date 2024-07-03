@@ -3,6 +3,22 @@
 import '@splidejs/splide/dist/css/splide.min.css';
 
 const { featured } = Astro.props;
+function formatDate(str){
+  const monthNames = [
+    "January", "February", "March", "April", "May", "June",
+    "July", "August", "September", "October", "November", "December"
+  ];
+  let date = new Date(str)
+  let day = date.getDate();
+  let month = monthNames[date.getMonth()];
+  let year = date.getFullYear();
+
+  return `${month} ${day}, ${year}`
+
+}
+
+    console.log()
+    
 ---
 
   <h1>This is a carousel</h1>
@@ -10,10 +26,12 @@ const { featured } = Astro.props;
     <div class="splide__track">
       <ul class="splide__list">
         {featured.map(image => (
-            <li class="splide__slide">
-              <a class="carousel-img" href={image.link.slug}>
-              <img  src={`http://localhost:3000${image.image.url}`} alt={image.alt || 'Carousel image'} />
-                 </a>  
+            <li style={`background-image: url(http://localhost:3000${image.image.url})`} class="splide__slide carousel-img">
+              <h2 class="slide-title">{image.link.name}</h2>
+              <p>{formatDate(image.link.createdAt)}</p>
+                <a  href={image.link.slug}>
+                  <div>Read More</div>
+                </a>  
             </li>            
         ))}
       </ul>
@@ -21,7 +39,8 @@ const { featured } = Astro.props;
   </div>
   <script>
     import Splide from "@splidejs/splide";
-    
+
+
     document.addEventListener("DOMContentLoaded", function () {
       new Splide(".splide", {
         type: "loop",
@@ -36,15 +55,25 @@ const { featured } = Astro.props;
     </script>
 
 <style> 
-
+.slide-title{
+  color: white;
+  text-decoration: none;
+}
 .carousel-img{
   margin: 0 auto;
   background-size: cover;
   max-width: 1600px;
   width: 100%;
   max-height: 400px;
+  display: flex;
+  justify-content: center;
+  align-items: center;
+  flex-direction: column;
 }
 .splide__slide{
+  background-size: cover;
+  background-position: center;
+  height: 400px;
   display: flex;
   justify-content: center;
 }
