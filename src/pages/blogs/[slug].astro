@@ -1,8 +1,8 @@
 ---
-
+import Blocks from "../../blocks/Blocks.astro"
 export const fetchData = async () => {
   try{
-    const response = await fetch('http://localhost:3000/api/pages/')
+    const response = await fetch('http://localhost:3000/api/blogs/')
     const data = await response.json()
     return data.docs
   }catch{
@@ -14,12 +14,18 @@ export const getStaticPaths = async () => {
   const data = await fetchData();
   const paths = data.map(page => ({
     params: { slug: page.slug },
+    props: { layout: page.layout },
   }));
 
-  return paths
+  return paths;
 };
 
 const { slug } = Astro.params;
+const { layout } = Astro.props;
 ---
-<div>Good dog, {slug}!</div>
+
+<div>
+  Good dog, {slug}!
+  <Blocks data={layout} /> 
+</div>
 

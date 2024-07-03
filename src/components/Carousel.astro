@@ -11,14 +11,11 @@ const { images } = Astro.props;
     <div class="splide__track">
       <ul class="splide__list">
         {images.map(image => (
-          
             <li class="splide__slide">
               <a href={image.link.slug}>
               <img src={`http://localhost:3000${image.image.url}`} alt={image.alt || 'Carousel image'} />
                  </a>  
             </li>            
-     
-
         ))}
       </ul>
     </div>
@@ -39,6 +36,7 @@ document.addEventListener("DOMContentLoaded", function () {
     type: "loop",
     perPage: 1  ,
     autoplay: true,
+    arrows: false
   }).mount();
 });
 </script>
