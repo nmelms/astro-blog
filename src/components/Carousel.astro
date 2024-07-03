@@ -2,41 +2,56 @@
 // Import Splide's CSS
 import '@splidejs/splide/dist/css/splide.min.css';
 
-const { images } = Astro.props;
+const { featured } = Astro.props;
 ---
 
-<div>
   <h1>This is a carousel</h1>
   <div class="splide" role="group" aria-label="Splide Basic HTML Example">
     <div class="splide__track">
       <ul class="splide__list">
-        {images.map(image => (
+        {featured.map(image => (
             <li class="splide__slide">
-              <a href={image.link.slug}>
-              <img src={`http://localhost:3000${image.image.url}`} alt={image.alt || 'Carousel image'} />
+              <a class="carousel-img" href={image.link.slug}>
+              <img  src={`http://localhost:3000${image.image.url}`} alt={image.alt || 'Carousel image'} />
                  </a>  
             </li>            
         ))}
       </ul>
     </div>
   </div>
-</div>
-<style>
+  <script>
+    import Splide from "@splidejs/splide";
+    
+    document.addEventListener("DOMContentLoaded", function () {
+      new Splide(".splide", {
+        type: "loop",
+        perPage: 1  ,
+        autoplay: true,
+        arrows: false,
+        classes: {
+          pagination: 'no-bottom splide__pagination '
+        }
+      }).mount();
+    });
+    </script>
+
+<style> 
+
+.carousel-img{
+  margin: 0 auto;
+  background-size: cover;
+  max-width: 1600px;
+  width: 100%;
+  max-height: 400px;
+}
+.splide__slide{
+  display: flex;
+  justify-content: center;
+}
   .splide__slide img {
     width: 100%;
     height: auto;
     max-height: 500px
   }
 </style>
-<script>
-import Splide from "@splidejs/splide";
 
-document.addEventListener("DOMContentLoaded", function () {
-  new Splide(".splide", {
-    type: "loop",
-    perPage: 1  ,
-    autoplay: true,
-    arrows: false
-  }).mount();
-});
-</script>
