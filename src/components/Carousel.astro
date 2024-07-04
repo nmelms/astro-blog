@@ -29,8 +29,10 @@ function formatDate(str){
             <li style={`background-image: url(http://localhost:3000${image.image.url})`} class="splide__slide carousel-img">
               <h2 class="slide-title">{image.link.name}</h2>
               <p>{formatDate(image.link.createdAt)}</p>
-                <a  href={image.link.slug}>
-                  <div>Read More</div>
+                <a href={image.link.slug}>
+                  <div class="border">
+                      <div class="read-more-btn">Read More</div>                    
+                    </div>
                 </a>  
             </li>            
         ))}
@@ -55,6 +57,19 @@ function formatDate(str){
     </script>
 
 <style> 
+a{
+  text-decoration: none;
+}
+.border{
+  border: 1px solid #1A73E8
+}
+.read-more-btn{
+  margin: .1rem;
+  background-color: #1A73E8;
+  color: black;
+  padding: 0 .5rem;
+
+}
 .slide-title{
   color: white;
   text-decoration: none;
@@ -62,13 +77,26 @@ function formatDate(str){
 .carousel-img{
   margin: 0 auto;
   background-size: cover;
-  max-width: 1600px;
   width: 100%;
-  max-height: 400px;
+  max-height: 300px;
   display: flex;
   justify-content: center;
   align-items: center;
   flex-direction: column;
+}
+.carousel-img::before {
+  content: '';
+  position: absolute;
+  top: 0;
+  left: 0;
+  right: 0;
+  bottom: 0;
+  background-color: rgba(0, 0, 0, 0.5);
+}
+
+.carousel-img > * {
+  position: relative;
+  z-index: 2; 
 }
 .splide__slide{
   background-size: cover;
@@ -82,5 +110,11 @@ function formatDate(str){
     height: auto;
     max-height: 500px
   }
+
+  @media screen and (min-width: 600px) {
+    .carousel-img{
+      max-height: 400px;
+    }
+}
 </style>
 
