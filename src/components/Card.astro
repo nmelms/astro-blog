@@ -1,5 +1,6 @@
 ---
 import Blog from "../pages/blog.astro";
+import formatDate from "../lib/formatDate";
 
 const { data } = Astro.props;
 
@@ -23,7 +24,7 @@ console.log(data.createdAt)
 		</h3>
 		<!-- this is current only working if the first paragraph is longer that 15 words. Might need to rework this later? -->
 		<p class="excerpt">{excerpt}...</p>
-		<p class="created-at">{data.createdAt}</p>
+		<p class="created-at">{formatDate(data.createdAt)}</p>
 	</div>		
 	</a>
 
@@ -45,6 +46,8 @@ console.log(data.createdAt)
 		transition: all 300ms ease;
 	}
 	.created-at{
+		color: #DADEED;
+		font-size: 12px;
 		position: relative;
 		padding-left: 1rem;
 
