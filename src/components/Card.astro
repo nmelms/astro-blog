@@ -13,7 +13,6 @@ console.log(data.createdAt)
 ---
 
 <li class="link-card">
-
 	<a href={"http"}>
 		<div>
 			<img class="card-img" src={`http://localhost:3000${image}`} alt="">			
@@ -22,15 +21,36 @@ console.log(data.createdAt)
 		<h3 class="card-title">
 			{data.name}
 		</h3>
+		{data.tag && <p class="tag">{data.tag}</p> }
+
 		<!-- this is current only working if the first paragraph is longer that 15 words. Might need to rework this later? -->
 		<p class="excerpt">{excerpt}...</p>
 		<p class="created-at">{formatDate(data.createdAt)}</p>
 	</div>		
 	</a>
-
-
 </li>
 <style>
+	.tag{
+		font-weight: lighter;
+		position: relative;
+		padding-left: 1rem;
+		font-size: 12px;
+	}
+	.tag::before{
+		content: '';
+		width: 5px;
+		height: 5px;
+		border-radius: 50%;
+		background-color: blue;
+		position: absolute;
+		left: 0px;
+		top: 50%;
+		margin-top: -2px;
+		-webkit-transform: rotate(45deg);
+		transform: rotate(45deg);
+		-webkit-transition: all 300ms ease;
+		transition: all 300ms ease;
+	}
 	.created-at::before{
 		content: '';
 		width: 5px;
