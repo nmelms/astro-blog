@@ -3,19 +3,26 @@ import Layout from '../layouts/Layout.astro';
 import Card from '../components/Card.astro';
 import Blocks from '../blocks/Blocks.astro';
 import { fetchPayloadData } from '../lib/payload';
+import { fetchBlogs } from '../lib/fetchBlogs';
 
 const data = await fetchPayloadData();
+const blogs = await fetchBlogs()
 
 ---
 
 <Layout title="Dev Blog">
 	<main>
 		<Blocks data={data.layout} />
+			{blogs.docs.map(blog => (
+				<Card data={blog} />
+			))}
 	</main>
 </Layout>
 
 <style>
 	main {
+		padding-bottom: 5rem;
+		min-height: fit-content;
 		display: flex;
 		flex-direction: column;
 		justify-content: center;
