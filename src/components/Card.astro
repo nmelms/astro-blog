@@ -12,7 +12,7 @@ console.log(data.createdAt)
 
 ---
 
-<li class="link-card">
+<li class="link-card col-span-4 md:col-span-2 ">
 	<a href={"http"}>
 		<div>
 			<img class="card-img" src={`http://localhost:3000${image}`} alt="">			
@@ -95,6 +95,9 @@ console.log(data.createdAt)
 		width: 100%;
 	}
 	.link-card {
+
+  /* Optionally, add a border for emphasis */
+  border: 1px solid #4CAF50;
 		margin-top: 2rem;
 		width: 100%;
 		list-style: none;

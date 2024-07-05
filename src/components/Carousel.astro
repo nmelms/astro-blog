@@ -9,8 +9,7 @@ const { featured } = Astro.props;
     
 ---
 
-  <h1>This is a carousel</h1>
-  <div class="splide" role="group" aria-label="Splide Basic HTML Example">
+  <div class="splide col-span-6" role="group" aria-label="Splide Basic HTML Example">
     <div class="splide__track">
       <ul class="splide__list">
         {featured.map(image => (

@@ -11,11 +11,19 @@ const blogs = await fetchBlogs()
 ---
 
 <Layout title="Dev Blog">
-	<main>
+	<main class="container grid grid-cols-1 md: grid-cols-6">
 		<Blocks data={data.layout} />
+		<section class="col-span-1 md:col-span-4">
 			{blogs.docs.map(blog => (
 				<Card data={blog} />
-			))}
+			))}			
+		</section>
+		<section class="hidden md:col-span-2 md:block">
+			<div class="about-me">
+				this is the the about me section
+			</div>
+		</section>
+
 	</main>
 </Layout>
 
@@ -23,9 +31,6 @@ const blogs = await fetchBlogs()
 	main {
 		padding-bottom: 5rem;
 		min-height: fit-content;
-		display: flex;
-		flex-direction: column;
-		justify-content: center;
 		margin: auto;
 		padding: 0 1rem;
 		max-width: 1600px;
