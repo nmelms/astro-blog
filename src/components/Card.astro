@@ -12,29 +12,21 @@ console.log(data.createdAt)
 
 ---
 
-<li class="link-card col-span-4 md:col-span-2 sm:flex sm:flex-row sm:h-[300px]  ">
-		<div class="sm:w-1/3">
-			<img class="card-img max-h-[250px] sm:max-h-none" src={`http://localhost:3000${image}`} alt="">			
-		</div>
-		<div class="wrapper sm:w-2/3 px-4 pb-4 sm:flex sm:flex-col sm:justify-around">
-		<h3 class="text-center">
-			{data.name}
-		</h3>
-		{data.tag && <p class="tag mb-8 text-sm">{data.tag}</p> }
-
-		<!-- this is current only working if the first paragraph is longer that 15 words. Might need to rework this later? -->
-		<p class="excerpt text-base">{excerpt}...</p>
-		<div class="flex flex-row justify-between">
-					<p class="created-at mt-4 text-sm">{formatDate(data.createdAt)}</p>
-					<div class="blue-border hidden sm:block	translate-y-[50px]">
-						<div class="read-more-btn">Read More</div>						
-					</div>
-
-		</div>
-
-	</div>		
-
-</li>
+<div class="m-4 border min-h-fit p-4 rounded bg-white min-h-fit">
+  <div class="max-h-[200px] overflow-hidden flex items-center justify-center rounded">
+    <img class="object-cover h-full w-full" src=`http://localhost:3000${image}` alt="">
+  </div>
+    <p class="text-sm dateGray pb-2 pt-4">
+    {formatDate(data.createdAt)}      
+    </p>
+    <h2 class="font-semibold text-base tracking-wide">{data.name}</h2>
+    <p class="darkerGray font-thin tracking-wide text-sm py-4">{excerpt}...</p>
+    <div class="flex">
+    {data.tags && data.tags.map(tag => (
+      <p class="text-sm m-1 bg-gray-200 px-2 py-1 rounded">{tag.tag}</p>
+    ))}      
+    </div>
+</div>
 <style>
 	.tag{
 		font-weight: lighter;
