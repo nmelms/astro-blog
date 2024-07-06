@@ -6,8 +6,10 @@ import { fetchPayloadData } from '../lib/payload';
 import { fetchBlogs } from '../lib/fetchBlogs';
 import Hero from '../components/Hero.astro';
 import FeaturedBlog from '../components/FeaturedBlog.astro';
+import { fetchRecentBlogs } from '../lib/fetchRecentBlogs';
 
 const data = await fetchPayloadData();
+const recentBlogs = await fetchRecentBlogs()
 const blogs = await fetchBlogs()
 
 ---
@@ -18,23 +20,30 @@ const blogs = await fetchBlogs()
 		navbar
 	</div>
 	<main class="container grid grid-cols-1 md:grid-cols-6 md:px-8">
-		<section class="h-[1500px] gradient-bg">
+		<section class="h-[1500px] gradient-bg p-4">
 			<Hero heroHeading={data.heroHeading} heroSubHeading={data.heroSubHeading}/>
 			<Card data={data.featuredBlog}/>
-						
+			<div class=" mt-10 border min-h-fit rounded bg-white">
+				<p class="text-sm gray font-semibold tracking-wide p-4">MOST RECENT BLOGS</p>
+				{recentBlogs.docs.map(blog => {
+					return(
+						<>
+							<div class="border-t-2 border-t-slate-200 mx-4"></div>	
+							<Card data={blog} />							
+						</>
+					
+					)
+	
+				})}
+			</div>
 		</section>
 
 		{data.layout && <Blocks data={data.layout} />}
-		<section class="col-span-1 md:col-span-4 mt-10">
+		<!-- <section class="col-span-1 md:col-span-4 mt-10">
 			{blogs.docs.map(blog => (
 				<Card data={blog} />
 			))}			
-		</section>
-		<section class="hidden md:col-span-2 md:block mt-10">
-			<div class="about-me">
-				this is the the about me section
-			</div>
-		</section>
+		</section> -->
 
 	</main>
 </Layout>
@@ -43,6 +52,9 @@ const blogs = await fetchBlogs()
 
 .gradient-bg {
   background: linear-gradient(to bottom, #040434, #024614);
+}
+.gray{
+	color: #697793
 }
 
 

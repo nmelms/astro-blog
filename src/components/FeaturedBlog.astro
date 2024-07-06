@@ -10,7 +10,6 @@ layoutArray.forEach(item => {
   const { blockType, ...rest } = item; 
   layoutObject[blockType] = rest;
 });
-console.log(featuredBlog.tags)
 // causing typescript error but it stillw orks. Might need to rework this later
 const imageUrl = layoutObject.image.image.url ? `http://localhost:3000${layoutObject.image.image.url}` : '';
 
