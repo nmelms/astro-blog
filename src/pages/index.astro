@@ -5,7 +5,6 @@ import Blocks from '../blocks/Blocks.astro';
 import { fetchPayloadData } from '../lib/payload';
 import { fetchBlogs } from '../lib/fetchBlogs';
 import Hero from '../components/Hero.astro';
-import FeaturedBlog from '../components/FeaturedCard.astro';
 import { fetchRecentBlogs } from '../lib/fetchRecentBlogs';
 import FeaturedCard from '../components/FeaturedCard.astro'
 
@@ -23,7 +22,7 @@ const blogs = await fetchBlogs()
 	<main class=" grid grid-cols-1 md:grid-cols-6">
 		<section class="containern min-h-fit gradient-bg md:col-span-6 p-4 md:px-16 lg:grid lg:grid-cols-6 lg:gap-6">
 			<Hero heroHeading={data.heroHeading} heroSubHeading={data.heroSubHeading}/>
-			<FeaturedCard data={data.featuredBlog}/>
+			<FeaturedCard featuredBlog={data.featuredBlog.slug} data={data.featuredBlog}/>
 			<div class=" mt-10 border min-h-fit rounded bg-white lg:col-span-3 lg:h-[600px] lg:mt-0 lg:flex lg:flex-col ">
 				<p class="text-sm gray font-semibold tracking-wide p-4 lg">MOST RECENT BLOGS</p>
 				{recentBlogs.docs.map(blog => {
