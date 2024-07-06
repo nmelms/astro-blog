@@ -4,6 +4,7 @@ import Card from '../components/Card.astro';
 import Blocks from '../blocks/Blocks.astro';
 import { fetchPayloadData } from '../lib/payload';
 import { fetchBlogs } from '../lib/fetchBlogs';
+import Hero from '../blocks/Hero.astro';
 
 const data = await fetchPayloadData();
 const blogs = await fetchBlogs()
@@ -11,6 +12,10 @@ const blogs = await fetchBlogs()
 ---
 
 <Layout title="Dev Blog">
+	<!-- placeholder navbar -->
+	<div class="h-16 border-b-2">
+		navbar
+	</div>
 	<main class="container grid grid-cols-1 px-6 md:grid-cols-6 md:px-8">
 		<Blocks data={data.layout} />
 		<section class="col-span-1 md:col-span-4 mt-10">
@@ -32,7 +37,7 @@ const blogs = await fetchBlogs()
 		min-height: fit-content;
 		margin: auto;
 		max-width: 1600px;
-		color: white;
+		color: var(--font-gray);
 		font-size: 20px;
 		line-height: 1.6;
 	}
