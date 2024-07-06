@@ -4,10 +4,11 @@ import Card from '../components/Card.astro';
 import Blocks from '../blocks/Blocks.astro';
 import { fetchPayloadData } from '../lib/payload';
 import { fetchBlogs } from '../lib/fetchBlogs';
-import Hero from '../blocks/Hero.astro';
+import Hero from '../components/Hero.astro';
 
 const data = await fetchPayloadData();
 const blogs = await fetchBlogs()
+console.log('data', data)
 
 ---
 
@@ -17,7 +18,8 @@ const blogs = await fetchBlogs()
 		navbar
 	</div>
 	<main class="container grid grid-cols-1 px-6 md:grid-cols-6 md:px-8">
-		<Blocks data={data.layout} />
+		<Hero heroHeading={data.heroHeading} heroSubHeading={data.heroSubHeading}/>
+		{data.layout && <Blocks data={data.layout} />}
 		<section class="col-span-1 md:col-span-4 mt-10">
 			{blogs.docs.map(blog => (
 				<Card data={blog} />
