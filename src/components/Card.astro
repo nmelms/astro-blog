@@ -12,29 +12,34 @@ console.log(data.createdAt)
 
 ---
 
-<li class="link-card col-span-4 md:col-span-2 ">
-	<a href={"http"}>
-		<div>
-			<img class="card-img" src={`http://localhost:3000${image}`} alt="">			
+<li class="link-card col-span-4 md:col-span-2 sm:flex sm:flex-row sm:h-[300px]  ">
+		<div class="sm:w-1/3">
+			<img class="card-img max-h-[250px] sm:max-h-none" src={`http://localhost:3000${image}`} alt="">			
 		</div>
-	<div class="wrapper">
-		<h3 class="card-title">
+		<div class="wrapper sm:w-2/3 px-4 pb-4 sm:flex sm:flex-col sm:justify-around">
+		<h3 class="text-center">
 			{data.name}
 		</h3>
-		{data.tag && <p class="tag">{data.tag}</p> }
+		{data.tag && <p class="tag mb-8 text-sm">{data.tag}</p> }
 
 		<!-- this is current only working if the first paragraph is longer that 15 words. Might need to rework this later? -->
-		<p class="excerpt">{excerpt}...</p>
-		<p class="created-at">{formatDate(data.createdAt)}</p>
+		<p class="excerpt text-base">{excerpt}...</p>
+		<div class="flex flex-row justify-between">
+					<p class="created-at mt-4 text-sm">{formatDate(data.createdAt)}</p>
+					<div class="blue-border hidden sm:block	translate-y-[50px]">
+						<div class="read-more-btn">Read More</div>						
+					</div>
+
+		</div>
+
 	</div>		
-	</a>
+
 </li>
 <style>
 	.tag{
 		font-weight: lighter;
 		position: relative;
 		padding-left: 1rem;
-		font-size: 12px;
 	}
 	.tag::before{
 		content: '';
@@ -67,42 +72,32 @@ console.log(data.createdAt)
 	}
 	.created-at{
 		color: #DADEED;
-		font-size: 12px;
 		position: relative;
 		padding-left: 1rem;
 
 	}
 	.excerpt{
 		color: #DADEED;
-		font-size: 14px;
 		line-height: 150%;
 	}
 	h3{
 		margin: 1rem;
 	}
-	.wrapper{
-		padding: 0 1rem;
-
-	}
 	.wrapper *{
 		text-decoration:none;
-	}
-	.card-title{
-		padding: 0 2rem
 	}
 	.card-img{
 		border-radius: 7px 7px 0 0 ;
 		width: 100%;
+		height: 100%;
+		object-fit: cover;
 	}
 	.link-card {
 
-  /* Optionally, add a border for emphasis */
   border: 1px solid #4CAF50;
 		margin-top: 2rem;
 		width: 100%;
 		list-style: none;
-		display: flex;
-		flex-direction: column;
 		background-color: #23262d;
 		background-image: none;
 		border-radius: 7px;
