@@ -3,9 +3,6 @@ import Blog from "../pages/blog.astro";
 import formatDate from "../lib/formatDate";
 
 const { featuredBlog, data } = Astro.props;
-console.log(featuredBlog)
-
-
 const imageBlock = data.layout.find(block => block.blockType === 'image');
 const richText = data.layout.find(block => block.blockType === 'RichText');
 const image = imageBlock ? imageBlock.image.url : '';

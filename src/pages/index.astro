@@ -14,9 +14,9 @@ import '../styles/globals.css';
 
 
 const data = await fetchPayloadData();
-const recentBlogs = await fetchRecentBlogs()
-const remainingBlogs = await fetchRemainingBlogs()
-console.log(remainingBlogs)
+const allBlogs = await fetchRecentBlogs()
+let recentBlogs = allBlogs.docs.slice(0,3)
+let remainingBlogs = allBlogs.docs.slice(3)
 const blogs = await fetchBlogs()
 
 ---
@@ -32,7 +32,7 @@ const blogs = await fetchBlogs()
 			<FeaturedCard featuredBlog={data.featuredBlog.slug} data={data.featuredBlog}/>
 			<div class=" mt-10 border min-h-fit rounded bg-white lg:col-span-3 lg:h-[600px] lg:mt-0 lg:flex lg:flex-col ">
 				<p class="text-sm gray font-semibold tracking-wide p-4 lg">MOST RECENT BLOGS</p>
-				{recentBlogs.docs.map(blog => {
+				{recentBlogs.map(blog => {
 					return(
 						<>
 							<div class="border-t-2 border-t-slate-200 mx-4"></div>	
@@ -42,18 +42,20 @@ const blogs = await fetchBlogs()
 				})}
 			</div>
 		</section>
-		<section class="conatiner rounded  grid col-span-1 md:col-span-6 p-4 grid-cols-6 pt-8 lg:grid-cols-8">
-			{remainingBlogs.docs.map((blog, idx) => (
-				<BottomCards idx={idx} data={blog} />
+		<section class=`conatiner ruled-grid rounded  grid col-span-1 md:col-span-6 m-4 grid-cols-6 pt-8   ${remainingBlogs.length < 4  ? 'lg:grid-cols-6' : 'lg:grid-cols-8'}`>
+			{remainingBlogs.map((blog, idx) => (
+				<BottomCards length={remainingBlogs.length} idx={idx} data={blog} />
 			))}
 		</section>
-
 		{data.layout && <Blocks data={data.layout} />}
-
 	</main>
 </Layout>
 
 <style>
+	.ruled-grid{
+		gap: 2rem;
+		overflow:hidden
+	}
 
 .gradient-bg {
   background: linear-gradient(to bottom, #040434, #024614);
