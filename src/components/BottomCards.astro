@@ -11,13 +11,14 @@ let excerpt = richText.richText_html?.split(/\s+/).slice(1, 15).join(' ')
 
 ---
 
-<a href=`http://localhost:4321/blogs/${data.slug}` class={`border-t-2 border-t-slate-200 pt-8 sm:pt-0 col-span-6 sm:border-t-0 sm:col-span-3 md:col-span-2 mt-8 ${
+<a href=`http://localhost:4321/blogs/${data.slug}` class={`border-t-2 pt-8 sm:pt-0 col-span-6 sm:border-t-0 sm:col-span-3 md:col-span-2 mt-8 ${
 	idx % 3 !== 0 || idx % 4 !== 0 || idx % 2 === 0 ? 'sm:border-l ' : ''
 }`}>
-  <div class=" flex flex-col min-h-fit bg-white px-6">
-    <div class="max-h-[200px] overflow-hidden items-center justify-center ">
-      <img class="object-cover h-full w-full" src={`http://localhost:3000${image}`} alt="">
-    </div>
+  <div class=" flex flex-col min-h-fit px-6">
+		<div class="max-h-[200px] min-h-[200px] overflow-hidden flex items-center justify-center"
+		style={{ backgroundImage: `url('http://localhost:3000${image}')`, backgroundSize: 'cover', backgroundPosition: 'center' }}>
+</div>
+
     <div class="md:flex md:flex-col">
       <p class="text-sm dateGray pb-2 pt-4">
         {formatDate(data.createdAt)}

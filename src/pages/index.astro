@@ -42,7 +42,7 @@ const blogs = await fetchBlogs()
 				})}
 			</div>
 		</section>
-		<section class="bg-white rounded  grid col-span-1 md:col-span-6 p-4 grid-cols-6 pt-8 lg:grid-cols-8">
+		<section class=" rounded  grid col-span-1 md:col-span-6 p-4 grid-cols-6 pt-8 lg:grid-cols-8">
 			{remainingBlogs.docs.map((blog, idx) => (
 				<BottomCards idx={idx} data={blog} />
 			))}
