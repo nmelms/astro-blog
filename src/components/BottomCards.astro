@@ -12,20 +12,21 @@ let excerpt = richText.richText_html?.split(/\s+/).slice(1, 15).join(' ')
 ---
 
 <a href=`http://localhost:4321/blogs/${data.slug}` class={`border-t-2 pt-8 sm:pt-0 col-span-6 sm:border-t-0 sm:col-span-3 md:col-span-2 mt-8 ${
-	idx % 3 !== 0 || idx % 4 !== 0 || idx % 2 === 0 ? 'sm:border-l ' : ''
-}`}>
-  <div class=" flex flex-col min-h-fit px-6">
+	idx % 2 === 1  ? 'sm:border-l md:border-0 lg:border-0' : ''} ${
+	idx % 3 === 1  ? 'md:border-r  md:border-l lg:border-0'  : ''} ${
+ idx % 3 !== 0 || idx === 0  ? 'lg:border-r ' : ''}`}>
+  <div class=" flex flex-col min-h-fit px-6 h-full">
 		<div class="max-h-[200px] min-h-[200px] overflow-hidden flex items-center justify-center"
 		style={{ backgroundImage: `url('http://localhost:3000${image}')`, backgroundSize: 'cover', backgroundPosition: 'center' }}>
 </div>
 
-    <div class="md:flex md:flex-col">
+    <div class="flex flex-col relative h-full">
       <p class="text-sm dateGray pb-2 pt-4">
         {formatDate(data.createdAt)}
       </p>
       <h2 class="font-semibold text-base tracking-wide">{data.name}</h2>
-      <p class="darkerGray font-thin tracking-wide text-sm py-4 lg:hidden">{excerpt}...</p>
-      <div class="flex">
+      <p class="darkerGray font-thin tracking-wide text-sm py-4 md:hidden lg:block">{excerpt}...</p>
+      <div class="flex mt-auto">
         {data.tags && data.tags.map((tag) => (
           <p class="text-sm m-1 bg-gray-200 px-2 py-1 ">{tag.tag}</p>
         ))}
