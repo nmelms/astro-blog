@@ -34,23 +34,11 @@ const { title } = Astro.props;
 		);
 	}
 	*{
-		font-family: Poppins, sans-serif;		
+		font-family: Poppins, sans-serif;	
+		box-sizing: border-box;
 	}
-	html {
-		background: #13151a;
-		background-size: 224px;
-	}
-	code {
-		font-family:
-			Menlo,
-			Monaco,
-			Lucida Console,
-			Liberation Mono,
-			DejaVu Sans Mono,
-			Bitstream Vera Sans Mono,
-			Courier New,
-			monospace;
-	}
+
+
 	.font-gray{
 		color: var(--font-gray);
 	}
@@ -61,10 +49,4 @@ const { title } = Astro.props;
   padding: 0 .5rem;
 
 }
-.blue-border{
-  border: 1px solid #1A73E8
-}
-	.no-bottom{
-  	bottom: -2rem !important;
-	}
 </style>

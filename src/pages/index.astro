@@ -7,9 +7,16 @@ import { fetchBlogs } from '../lib/fetchBlogs';
 import Hero from '../components/Hero.astro';
 import { fetchRecentBlogs } from '../lib/fetchRecentBlogs';
 import FeaturedCard from '../components/FeaturedCard.astro'
+import {fetchRemainingBlogs} from '../lib/fetchRemainingBlogs'
+import BottomCards from '../components/BottomCards.astro'
+import '../styles/globals.css';
+
+
 
 const data = await fetchPayloadData();
 const recentBlogs = await fetchRecentBlogs()
+const remainingBlogs = await fetchRemainingBlogs()
+console.log(remainingBlogs)
 const blogs = await fetchBlogs()
 
 ---
@@ -32,17 +39,16 @@ const blogs = await fetchBlogs()
 							<Card data={blog} />							
 						</>
 					)
-	
 				})}
 			</div>
 		</section>
+		<section class="bg-white rounded  grid col-span-1 md:col-span-6 p-4 grid-cols-6 pt-8 lg:grid-cols-8">
+			{remainingBlogs.docs.map((blog, idx) => (
+				<BottomCards idx={idx} data={blog} />
+			))}
+		</section>
 
 		{data.layout && <Blocks data={data.layout} />}
-		<!-- <section class="col-span-1 md:col-span-4 mt-10">
-			{blogs.docs.map(blog => (
-				<Card data={blog} />
-			))}			
-		</section> -->
 
 	</main>
 </Layout>
@@ -56,22 +62,10 @@ const blogs = await fetchBlogs()
 	color: #697793
 }
 
-
-
-
 	main {
 		min-height: fit-content;
 		font-size: 20px;
 		line-height: 1.6;
-	}
-	.astro-a {
-		position: absolute;
-		top: -32px;
-		left: 50%;
-		transform: translatex(-50%);
-		width: 220px;
-		height: auto;
-		z-index: -1;
 	}
 	h1 {
 		font-size: 4rem;
@@ -79,13 +73,6 @@ const blogs = await fetchBlogs()
 		line-height: 1;
 		text-align: center;
 		margin-bottom: 1em;
-	}
-	.text-gradient {
-		background-image: var(--accent-gradient);
-		-webkit-background-clip: text;
-		-webkit-text-fill-color: transparent;
-		background-size: 400%;
-		background-position: 0%;
 	}
 	.instructions {
 		margin-bottom: 2rem;
@@ -104,11 +91,5 @@ const blogs = await fetchBlogs()
 	}
 	.instructions strong {
 		color: rgb(var(--accent-light));
-	}
-	.link-card-grid {
-		display: grid;
-		grid-template-columns: repeat(auto-fit, minmax(24ch, 1fr));
-		gap: 2rem;
-		padding: 0;
 	}
 </style>
