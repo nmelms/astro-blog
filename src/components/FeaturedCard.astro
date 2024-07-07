@@ -2,8 +2,7 @@
 import Blog from "../pages/blog.astro";
 import formatDate from "../lib/formatDate";
 
-const { data } = Astro.props;
-
+const { featuredBlog, data } = Astro.props;
 const imageBlock = data.layout.find(block => block.blockType === 'image');
 const richText = data.layout.find(block => block.blockType === 'RichText');
 const image = imageBlock ? imageBlock.image.url : '';
@@ -11,26 +10,26 @@ let excerpt = richText.richText_html?.split(/\s+/).slice(1, 15).join(' ')
 
 ---
 
-<a href=`http://localhost:4321/blogs/${data.slug}` class="block lg:flex-1">
-  <div class="min-h-fit h-full p-4 rounded bg-white md:grid md:grid-cols-6 ">
-    <div class="max-h-[200px] overflow-hidden flex items-center justify-center rounded md:col-span-2 md:min-h-full md:max-h-400 lg:max-h-[100px]">
-      <img class="object-cover h-full w-full" src={`http://localhost:3000${image}`} alt="">
-    </div>
-    <div class="md:flex md:flex-col md:col-span-4 md:px-8">
-      <p class="text-sm dateGray pb-2 pt-4">
-        {formatDate(data.createdAt)}
-      </p>
-      <h2 class="font-semibold text-base tracking-wide">{data.name}</h2>
-      <p class="darkerGray font-thin tracking-wide text-sm py-4 lg:hidden">{excerpt}...</p>
-      <div class="flex">
-        {data.tags && data.tags.map(tag => (
-          <p class="text-sm m-1 bg-gray-200 px-2 py-1 rounded">{tag.tag}</p>
-        ))}
-      </div>
-    </div>
-  </div>
-</a>
+<div class="min-h-fit  p-4 rounded bg-white lg:col-span-3 lg:h-[600px] lg:flex lg:flex-col lg:justify-between">
+  <a href=`http://localhost:4321/blogs/${featuredBlog}`>
 
+  <div class="max-h-[200px] md:max-h-[400px] overflow-hidden flex items-center justify-center rounded ">
+    <img class="object-cover h-full w-full" src=`http://localhost:3000${image}` alt="">
+  </div>
+    <p class="text-sm dateGray pb-2 pt-4">
+    {formatDate(data.createdAt)}      
+    </p>
+    <h2 class="font-semibold text-base tracking-wide">{data.name}</h2>
+    <p class="darkerGray font-thin tracking-wide text-sm py-4">{excerpt}...</p>
+    <div class="flex">
+    {data.tags && data.tags.map(tag => (
+      <p class="text-sm m-1 bg-gray-200 px-2 py-1 rounded">{tag.tag}</p>
+    ))}      
+    </div>
+
+  </a>
+
+</div>
 <style>
 	.tag{
 		font-weight: lighter;
@@ -110,21 +109,5 @@ let excerpt = richText.richText_html?.split(/\s+/).slice(1, 15).join(' ')
 		background-color: #23262d;
 		opacity: 0.8;
 	}
-	/*
-	h2 {
-		margin: 0;
-		font-size: 1.25rem;
-		transition: color 0.6s cubic-bezier(0.22, 1, 0.36, 1);
-	}
-	p {
-		margin-top: 0.5rem;
-		margin-bottom: 0;
-	}
-	.link-card:is(:hover, :focus-within) {
-		background-position: 0;
-		background-image: var(--accent-gradient);
-	}
-	.link-card:is(:hover, :focus-within) h2 {
-		color: rgb(var(--accent-light));
-	} */
+
 </style>
