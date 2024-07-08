@@ -14,7 +14,7 @@ let excerpt = richText.richText_html?.split(/\s+/).slice(1, 15).join(' ')
 <a href=`http://localhost:4321/blogs/${data.slug}` class="block lg:flex-1">
   <div class="min-h-fit h-full p-4 rounded bg-white md:grid md:grid-cols-6 ">
     <div class="max-h-[200px] overflow-hidden flex items-center justify-center rounded md:col-span-2 md:min-h-full md:max-h-400 lg:max-h-[100px]">
-      <img class="object-cover h-full w-full" src={`http://localhost:3000${image}`} alt="">
+      <img class="object-cover h-full w-full" src={`${import.meta.env.CMS_BASE_URL}${image}`} alt="">
     </div>
     <div class="md:flex md:flex-col md:col-span-4 md:px-8">
       <p class="text-sm dateGray pb-2 pt-4">
