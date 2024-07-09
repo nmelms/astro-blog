@@ -13,12 +13,16 @@ export const fetchData = async () => {
 
 export const getStaticPaths = async () => {
   const data = await fetchData();
+  if(data){
   const paths = data.map(page => ({
     params: { slug: page.slug },
     props: { layout: page.layout },
-  }));
+  })); 
 
-  return paths;
+  return paths;     
+  }
+
+
 };
 
 const { slug } = Astro.params;
