@@ -3,7 +3,7 @@ import Blocks from "../../blocks/Blocks.astro"
 import Layout from "../../layouts/Layout.astro"
 export const fetchData = async () => {
   try{
-    const response = await fetch('http://localhost:3000/api/blogs/')
+    const response = await fetch(`${import.meta.env.CMS_BASE_URL}/api/blogs/`)
     const data = await response.json()
     return data.docs
   }catch{
@@ -13,12 +13,16 @@ export const fetchData = async () => {
 
 export const getStaticPaths = async () => {
   const data = await fetchData();
+  if(data){
   const paths = data.map(page => ({
     params: { slug: page.slug },
     props: { layout: page.layout },
-  }));
+  })); 
 
-  return paths;
+  return paths;     
+  }
+
+
 };
 
 const { slug } = Astro.params;
