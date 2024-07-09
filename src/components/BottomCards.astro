@@ -7,7 +7,12 @@ const { data,idx } = Astro.props;
 const imageBlock = data.layout.find(block => block.blockType === 'image');
 const richText = data.layout.find(block => block.blockType === 'RichText');
 const image = imageBlock ? imageBlock.image.url : '';
-let excerpt = richText.richText_html?.split(/\s+/).slice(1, 15).join(' ')
+let excerpt
+
+if(richText){
+	excerpt = richText.richText_html?.split(/\s+/).slice(1, 15).join(' ')
+}
+
 
 ---
 
