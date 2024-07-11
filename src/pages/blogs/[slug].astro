@@ -35,7 +35,7 @@ console.log(page)
 <Layout title="Dev Blog">
 <main class="gradient-bg min-h-dvh flex flex-col items-center p-8">
   <div class="container bg-[#f2f2f2] p-6 flex flex-col items-center ">
-    <div class="max-w-[1200px] items-center flex flex-col">
+    <div class="max-w-[1200px] items-center flex flex-col w-full">
       <img class="h-[300px] w-full max-w-[1200px]" src=`${import.meta.env.CMS_BASE_URL}${page.heroImage.url}` alt="">
       <div class="flex self-start pt-4">
         {page.tags.length && page.tags.map((tag) => (
