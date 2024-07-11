@@ -26,11 +26,11 @@ const blogs = await fetchBlogs()
 	<div class="h-16 border-b-2">
 		navbar
 	</div>
-	<main class=" grid grid-cols-1 md:grid-cols-6">
+	<main class=" grid grid-cols-1 md:grid-cols-6 bg-[#f2f2f2]">
 		<section class="containern min-h-fit gradient-bg md:col-span-6 p-4 md:px-16 lg:grid lg:grid-cols-6 lg:gap-6">
 			{data.heroHeading && <Hero heroHeading={data.heroHeading} heroSubHeading={data.heroSubHeading}/>}
 			{data.featuredBlog && <FeaturedCard featuredBlog={data.featuredBlog?.slug} data={data.featuredBlog}/> }
-			<div class=" mt-10 border min-h-fit rounded bg-white lg:col-span-3 lg:h-[600px] lg:mt-0 lg:flex lg:flex-col ">
+			<div class=" mt-10 border min-h-fit rounded bg-[#f2f2f2] lg:col-span-3 lg:h-[600px] lg:mt-0 lg:flex lg:flex-col ">
 				<p class="text-sm gray font-semibold tracking-wide p-4 lg">MOST RECENT BLOGS</p>
 				{recentBlogs.map(blog => {
 					return(
@@ -42,7 +42,7 @@ const blogs = await fetchBlogs()
 				})}
 			</div>
 		</section>
-		<section class=`conatiner ruled-grid rounded  grid col-span-1 md:col-span-6 m-4 grid-cols-6 pt-8   ${remainingBlogs.length < 4  ? 'lg:grid-cols-6' : 'lg:grid-cols-8'}`>
+		<section class=`conatiner ruled-grid rounded  grid col-span-1 md:col-span-6 m-4 grid-cols-6 pt-8  ${remainingBlogs.length < 4  ? 'lg:grid-cols-6' : 'lg:grid-cols-8'}`>
 			{remainingBlogs.map((blog, idx) => (
 				<BottomCards length={remainingBlogs.length} idx={idx} data={blog} />
 			))}
