@@ -9,6 +9,7 @@ import { fetchRecentBlogs } from '../lib/fetchRecentBlogs';
 import FeaturedCard from '../components/FeaturedCard.astro'
 import {fetchRemainingBlogs} from '../lib/fetchRemainingBlogs'
 import BottomCards from '../components/BottomCards.astro'
+import Navbar from '../components/Navbar.astro';
 import '../styles/globals.css';
 
 
@@ -22,11 +23,7 @@ const blogs = await fetchBlogs()
 ---
 
 <Layout title="Dev Blog h-dvh">
-	<!-- placeholder navbar -->
-	<div class="h-16 border-b-2">
-		navbar
-	</div>
-	<main class=" grid grid-cols-1 md:grid-cols-6 bg-[#f2f2f2]">
+	<main class=" grid grid-cols-1 md:grid-cols-6 bg-[#f2f2f2] pt-11">
 		<section class="containern min-h-fit gradient-bg md:col-span-6 p-4 md:px-16 lg:grid lg:grid-cols-6 lg:gap-6">
 			{data.heroHeading && <Hero heroHeading={data.heroHeading} heroSubHeading={data.heroSubHeading}/>}
 			{data.featuredBlog && <FeaturedCard featuredBlog={data.featuredBlog?.slug} data={data.featuredBlog}/> }
@@ -58,7 +55,7 @@ const blogs = await fetchBlogs()
 	}
 
 .gradient-bg {
-  background: linear-gradient(to bottom, #040434, #024614);
+  background: linear-gradient(to bottom, #1f2937, #040434);
 }
 .gray{
 	color: #697793
