@@ -66,15 +66,16 @@
 
 
   document.addEventListener('DOMContentLoaded', () => {
+    // need trailing slash on prod
     const mobileLinks = {
       '/': 'mobile-home-link',
-      '/blogs': 'mobile-blogs-link',
-      '/about': 'mobile-about-link'
+      '/blogs/': 'mobile-blogs-link',
+      '/about/': 'mobile-about-link'
     };
     const desktopLinks = {
       '/': 'home-link',
-      '/blogs': 'blogs-link',
-      '/about': 'about-link',
+      '/blogs/': 'blogs-link',
+      '/about/': 'about-link',
     }
 
     const currentPath = window.location.pathname;
