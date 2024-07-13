@@ -45,8 +45,8 @@
   </div>
 
   <!-- Mobile menu, show/hide based on menu state. -->
-  <div class="sm:hidden" id="mobile-menu">
-    <div class="space-y-1 px-2 pb-3 pt-2">
+  <div class="hidden" id="mobile-menu">
+    <div class=" space-y-1 px-2 pb-3 pt-2">
       <!-- Current: "bg-gray-900 text-white", Default: "text-gray-300 hover:bg-gray-700 hover:text-white" -->
       <a id="mobile-home-link" href="/" class="block rounded-md px-3 py-2 text-base font-medium text-gray-300 hover:bg-gray-700 hover:text-white" aria-current="page">Home</a>
       <a id="mobile-blogs-link" href="/blogs" class="block rounded-md px-3 py-2 text-base font-medium text-gray-300 hover:bg-gray-700 hover:text-white">Blogs</a>
@@ -58,8 +58,10 @@
 <script>
   let mobileBtn = document.querySelector('#mobile-btn')
   let mobileMenu = document.querySelector('#mobile-menu')
+  let main = document.querySelector('main')
 
   mobileBtn.addEventListener('click', () => {
+    console.log('toggle')
     mobileMenu.classList.toggle('hidden')
   })
 
@@ -87,6 +89,13 @@
       document.getElementById(currentDesktopLink).classList.remove('text-gray-300', 'hover:bg-gray-700', 'hover:text-white');
     }
   });
+
+  main.addEventListener('click', (e) => {
+
+    mobileMenu.classList.add('hidden')
+  })
+
+
 
 
 </script>
