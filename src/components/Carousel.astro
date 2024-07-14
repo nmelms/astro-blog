@@ -13,7 +13,7 @@ const { featured } = Astro.props;
     <div class="splide__track">
       <ul class="splide__list">
         {featured.map(image => (
-            <li style={`background-image: url(${import.meta.env.CMS_BASE_URL}${image.image.url})`} class="splide__slide carousel-img">
+            <li style={`background-image: url(${import.meta.env.IMAGE_BASE_URL}${image.image.url})`} class="splide__slide carousel-img">
               <h2 class="slide-title">{image.link.name}</h2>
               <p>{formatDate(image.link.createdAt)}</p>
                 <a href={image.link.slug}>
