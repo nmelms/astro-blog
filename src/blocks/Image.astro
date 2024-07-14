@@ -2,4 +2,4 @@
 const { heading, text, image } = Astro.props;
 ---
 
-<img style="height: 200px; width: 200px" src=`${import.meta.env.IMAGE_BASE_URL}${image.url}` alt=`${image.alt}`>
+<img style="height: 200px; width: 200px" src=`${image.url}` alt=`${image.alt}`>
