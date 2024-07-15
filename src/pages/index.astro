@@ -24,10 +24,10 @@ const blogs = await fetchBlogs()
 
 <Layout title="Dev Blog h-dvh">
 	<main class=" grid grid-cols-1 md:grid-cols-6 bg-[#f2f2f2] pt-11">
-		<section class="containern min-h-fit gradient-bg md:col-span-6 p-4 md:px-16 lg:grid lg:grid-cols-6 lg:gap-6">
+		<section class=" min-h-fit gradient-bg md:col-span-6 p-4 md:px-16 lg:grid lg:grid-cols-6 lg:gap-6">
 			{data.heroHeading && <Hero heroHeading={data.heroHeading} heroSubHeading={data.heroSubHeading}/>}
 			{data.featuredBlog && <FeaturedCard featuredBlog={data.featuredBlog?.slug} data={data.featuredBlog}/> }
-			<div class=" mt-10 border min-h-fit rounded bg-[#f2f2f2] lg:col-span-3 lg:h-[600px] lg:mt-0 lg:flex lg:flex-col ">
+			<div class=" mt-10 border min-h-fit rounded bg-[#f2f2f2] lg:col-span-3 lg:min-h-[600px] lg:mt-0 lg:flex lg:flex-col ">
 				<p class="text-sm gray font-semibold tracking-wide p-4 lg">MOST RECENT BLOGS</p>
 				{recentBlogs.map(blog => {
 					return(

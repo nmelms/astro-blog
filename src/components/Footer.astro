@@ -5,7 +5,7 @@ const {} = Astro.props
 
 ---
 <footer class="bg-[#040434] font-gray w-full flex justify-center">
-  <div class="container grid grid-cols-1 pb-16 sm:grid-cols-2 ">
+  <div class="container grid grid-cols-1 pb-8 sm:grid-cols-2 max-w-[1000px] ">
     <div class="sm:col-span-1 w-full text-center mt-8 md:mt-10 md:flex md:flex-col">
       <h3 class="mb-4 text-xl lg:text-2xl">Find Me</h3>
       <div class="flex justify-around items-center">
@@ -29,7 +29,7 @@ const {} = Astro.props
         <input placeholder="First Name" class="col-span-1 py-1 px-2 rounded" type="text" name="First" id="">
         <input placeholder="Last Name" class="col-span-1 py-1 px-2 rounded"  type="text" name="Last" id="">
         <input placeholder="Email" class="col-span-2 py-1 px-2 rounded"  type="email" name="email" id="">
-        <textarea placeholder="Message" class="col-span-2 py-1 px-2 rounded"  name="Message"  rows="5"></textarea>
+        <textarea placeholder="Message" class="col-span-2 py-1 px-2 rounded"  name="Message"  rows="3"></textarea>
         <input class="bg-white text-black py-1 px-3 w-fit rounded self-end col-span-2 ml-auto hover:cursor-pointer hover:bg-[#040434] hover:text-white border-white hover:border" type="submit" value="Submit"></input>
       </form>
     </div>
