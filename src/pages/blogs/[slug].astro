@@ -32,8 +32,8 @@ const { layout, page } = Astro.props;
 ---
 
 <Layout title="Dev Blog">
-<main class="gradient-bg min-h-dvh flex flex-col items-center p-8 pt-24">
-  <div class="container bg-[#f2f2f2] p-6 flex flex-col items-center ">
+<main class="gradient-bg min-h-dvh flex flex-col items-center p-4 md:px-16 pt-24">
+  <div class="container bg-[#f2f2f2] p-4 flex flex-col items-center ">
     <div class="max-w-[1200px] items-center flex flex-col w-full">
       {page.heroImage.url && (<img class="h-[300px] w-full max-w-[1200px]" src={`${page.heroImage.url}`} alt=""/>)}
       
