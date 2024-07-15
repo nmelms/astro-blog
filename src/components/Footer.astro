@@ -1,27 +1,46 @@
 ---
 
+
 const {} = Astro.props
 
 ---
-<footer class="bg-[#040434] text-white w-full grid grid-cols-1 mb-16 sm:grid-cols-2">
-  <div class="sm:col-span-1">
-    <h3>Find Me</h3>
-    <p>Linkedin</p>
-    <p>github</p>
-    <p>portfilio</p>
-  </div>
-  <div>
-    Contact Form
-    <div class="grid grid-cols-2 gap-4 sm:col-span-1">
-      <input class="col-span-1" type="text" name="" id="">
-      <input class="col-span-1"  type="text" name="" id="">
-      <input class="col-span-2"  type="text" name="" id="">
+<footer class="bg-[#040434] text-white w-full flex justify-center">
+  <div class="container grid grid-cols-1 pb-16 sm:grid-cols-2 ">
+    <div class="sm:col-span-1 w-full text-center mt-8 md:mt-10 md:flex md:flex-col">
+      <h3 class="mb-4 text-xl">Find Me</h3>
+      <div class="flex justify-around items-center">
+        <a class="w-fit block  items-center" href="https://linkedin.com/in/nmelms">
+          <i class="fa-brands fa-linkedin fa-xl res-icon lg:fa-2xl p-4 md:py-6 md:px-2 "></i>
+          <p>linkedin</p>
+        </a>
+        <a class="w-fit block  items-center" href="https//github.com/nmelms">
+          <i class="fa-brands fa-github  fa-xl res-icon p-4 md:py-6 md:px-2 "></i>
+          <p>Github</p>
+        </a>
+        <a class="w-fit block  items-center" href="https://nickmelms.dev" target="_blank">
+          <i class="fa-solid fa-globe  fa-xl res-icon p-4 md:py-6 md:px-2 "></i>
+          <p>Portfolio</p>
+        </a>        
+      </div>
     </div>
-
+    <div class="text-center mt-10">
+      <h3 class="mb-4 text-xl">Say Hello</h3>
+      <div class="grid grid-cols-2 gap-4 sm:col-span-1 container px-4">
+        <input placeholder="First Name" class="col-span-1 py-1 px-2 rounded" type="text" name="" id="">
+        <input placeholder="Last Name" class="col-span-1 py-1 px-2 rounded"  type="text" name="" id="">
+        <input placeholder="Email" class="col-span-2 py-1 px-2 rounded"  type="text" name="" id="">
+        <textarea placeholder="message" class=" col-span-2 py-1 px-2 rounded"  name="" id=""  rows="5"></textarea>
+      </div>
+    </div>
   </div>
-
 </footer>
 
 <style>
+  @media (min-width: 768px) { /* Tailwind's md breakpoint */
+  .res-icon{
+    font-size: 2rem; /* equivalent to Font Awesome's fa-2xl */
+  }
+}
+
 
 </style>
