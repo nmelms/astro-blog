@@ -7,30 +7,31 @@ const {} = Astro.props
 <footer class="bg-[#040434] text-white w-full flex justify-center">
   <div class="container grid grid-cols-1 pb-16 sm:grid-cols-2 ">
     <div class="sm:col-span-1 w-full text-center mt-8 md:mt-10 md:flex md:flex-col">
-      <h3 class="mb-4 text-xl">Find Me</h3>
+      <h3 class="mb-4 text-xl lg:text-2xl">Find Me</h3>
       <div class="flex justify-around items-center">
         <a class="w-fit block  items-center" href="https://linkedin.com/in/nmelms">
           <i class="fa-brands fa-linkedin fa-xl res-icon lg:fa-2xl p-4 md:py-6 md:px-2 "></i>
-          <p>linkedin</p>
+          <p class="lg:text-xl ">linkedin</p>
         </a>
         <a class="w-fit block  items-center" href="https//github.com/nmelms">
           <i class="fa-brands fa-github  fa-xl res-icon p-4 md:py-6 md:px-2 "></i>
-          <p>Github</p>
+          <p class="lg:text-xl">Github</p>
         </a>
         <a class="w-fit block  items-center" href="https://nickmelms.dev" target="_blank">
           <i class="fa-solid fa-globe  fa-xl res-icon p-4 md:py-6 md:px-2 "></i>
-          <p>Portfolio</p>
+          <p class="lg:text-xl">Portfolio</p>
         </a>        
       </div>
     </div>
     <div class="text-center mt-10">
-      <h3 class="mb-4 text-xl">Say Hello</h3>
-      <div class="grid grid-cols-2 gap-4 sm:col-span-1 container px-4">
-        <input placeholder="First Name" class="col-span-1 py-1 px-2 rounded" type="text" name="" id="">
-        <input placeholder="Last Name" class="col-span-1 py-1 px-2 rounded"  type="text" name="" id="">
-        <input placeholder="Email" class="col-span-2 py-1 px-2 rounded"  type="text" name="" id="">
-        <textarea placeholder="message" class=" col-span-2 py-1 px-2 rounded"  name="" id=""  rows="5"></textarea>
-      </div>
+      <h3 class="mb-4 text-xl lg:text-2xl">Say Hello</h3>
+      <form action="https://formsubmit.co/nmelms92@gmail.com" method="POST" class="grid grid-cols-2 gap-4 sm:col-span-1 container px-4">
+        <input placeholder="First Name" class="col-span-1 py-1 px-2 rounded" type="text" name="First" id="">
+        <input placeholder="Last Name" class="col-span-1 py-1 px-2 rounded"  type="text" name="Last" id="">
+        <input placeholder="Email" class="col-span-2 py-1 px-2 rounded"  type="email" name="email" id="">
+        <textarea placeholder="Message" class="col-span-2 py-1 px-2 rounded"  name="Message"  rows="5"></textarea>
+        <input class="bg-white text-black py-1 px-3 w-fit rounded self-end col-span-2 ml-auto hover:cursor-pointer hover:bg-[#040434] hover:text-white border-white hover:border" type="submit" value="Submit"></input>
+      </form>
     </div>
   </div>
 </footer>
