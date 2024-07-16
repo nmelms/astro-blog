@@ -15,7 +15,7 @@ const data = await fetchBlogs();
 		<ul class="px-10">
 			{data.docs.map(blog => {
 				return(
-					<li class="py-2 hover:cursor-pointer hover:text-[#00bda5]"><a href={`blogs/${blog.slug}`}>{blog.name}</a></li>
+					<li class="py-2 hover:cursor-pointer hover:text-[#00bda5]"><a href={`/blogs/${blog.slug}`}>{blog.name}</a></li>
 				)
 			})}
 		</ul>
