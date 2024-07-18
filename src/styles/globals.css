@@ -4,17 +4,17 @@
 
 h1 {
   @apply text-2xl;
-  @apply font-bold;
+  @apply font-normal;
 }
 
 h2 {
   @apply text-xl;
-  @apply font-bold;
+  @apply font-normal;
 }
 
 h3 {
   @apply text-lg;
-  @apply font-bold;
+  @apply font-normal;
 }
 
 @tailwind components;
