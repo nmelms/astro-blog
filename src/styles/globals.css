@@ -5,16 +5,19 @@
 h1 {
   @apply text-2xl;
   @apply font-normal;
+  width: fit-content;
 }
 
 h2 {
   @apply text-xl;
   @apply font-normal;
+  width: fit-content;
 }
 
 h3 {
   @apply text-lg;
   @apply font-normal;
+  width: fit-content;
 }
 
 @tailwind components;
