@@ -28,6 +28,21 @@ body {
   margin: 0;
 }
 
+.rich-text h1 {
+  text-align: center;
+}
+
+.rich-text h2 {
+  text-align: center;
+}
+
+.rich-text h3 {
+  text-align: center;
+}
+
+.rich-text h4 {
+  text-align: center;
+}
 * {
   box-sizing: border-box;
 }
