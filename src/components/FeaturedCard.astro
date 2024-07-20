@@ -6,11 +6,10 @@ const { featuredBlog, data } = Astro.props;
 const imageBlock = data.layout.find(block => block.blockType === 'image');
 const richText = data.layout.find(block => block.blockType === 'RichText');
 const image = imageBlock ? imageBlock.image.url : '';
-let excerpt
+// except is a field in the CMS for now. I want to dynamically add this
+let excerpt = data.excerpt
 
-if(richText){
-	excerpt = richText.richText_html?.split(/\s+/).slice(1, 15).join(' ')
-}
+
 
 ---
 
