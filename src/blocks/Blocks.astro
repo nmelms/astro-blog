@@ -1,6 +1,5 @@
 ---
 import Hero from "../components/Hero.astro";
-import Carousel from "../components/Carousel.astro"
 import RichText from "./RichText.astro";
 import Image from "./Image.astro";
 import Code from "./Code.astro";
@@ -13,8 +12,6 @@ const { data } = Astro.props;
   switch (block.blockType) {
     // case 'hero':
     //   return <Hero {...block} />;
-    case 'carousel':
-      return <Carousel {...block} />;
     case 'RichText':
       return <RichText {...block} />;
     case 'image':
