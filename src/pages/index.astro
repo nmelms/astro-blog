@@ -39,7 +39,8 @@ const blogs = await fetchBlogs()
 				})}
 			</div>
 		</section>
-		<section class=`conatiner ruled-grid rounded  grid col-span-1 md:col-span-6 m-4 grid-cols-6 pt-8  ${remainingBlogs.length < 4  ? 'lg:grid-cols-6' : 'lg:grid-cols-8'}`>
+		<!-- setting this section to display hidden until i get more than 3 blogs posted -->
+		<section class=`conatiner hidden ruled-grid rounded  grid col-span-1 md:col-span-6 m-4 grid-cols-6 pt-8  ${remainingBlogs.length < 4  ? 'lg:grid-cols-6' : 'lg:grid-cols-8'}`>
 			{remainingBlogs.map((blog, idx) => (
 				<BottomCards length={remainingBlogs.length} idx={idx} data={blog} />
 			))}
