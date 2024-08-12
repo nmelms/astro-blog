@@ -18,7 +18,8 @@ if(richText){
 ---
 
 <a href=`${import.meta.env.FRONTEND_URL}/blogs/${data.slug}` class="block lg:flex-1">
-  <div class="min-h-fit h-full p-4 rounded bg-[#f2f2f2] md:grid md:grid-cols-6 ">
+	<!-- might need to eventually remove this max-h-[200px] once i have more blogs -->
+  <div class="min-h-fit h-full p-4 rounded bg-[#f2f2f2] md:grid md:grid-cols-6 max-h-[200px]">
     <div class="max-h-[200px] overflow-hidden flex items-center justify-center rounded md:col-span-2 md:min-h-full md:max-h-400 lg:max-h-[100px]">
 			<Image class="object-cover h-full w-full" height={100} width={100} src={`${data.heroImage.url}`} alt="" loading="eager" />
 
